@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_bills', function (Blueprint $table) {
+           Schema::create('bill_details', function (Blueprint $table) {
             $table->foreignId('bill_id')->references('id')->on('bills')->onDelete('cascade' );
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade' );
+            $table->integer('product_price'); 
+            $table->integer('quantity'); 
+            $table->integer('total'); 
             $table->unique(['bill_id', 'product_id']);
             $table->timestamps();
         });
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_bills');
+        Schema::dropIfExists('bill_details');
     }
 };

@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index(): View
     {
         $products =  Product::all();
-        return view('admin.Product.index',compact('products'));
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function create(): View
     {
         $products =  Product::all();
-        return view('admin.Product.create',compact('products'));
+        return view('admin.product.create',compact('products'));
     }
 
     /**
